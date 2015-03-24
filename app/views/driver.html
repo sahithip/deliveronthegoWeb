@@ -1,0 +1,68 @@
+<div class="container">
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+    <i class="fa fa-bars"></i>
+  </button>
+  <a class="navbar-brand page-scroll" href="#page-top">
+    <i class="fa fa-truck"></i>  <span class="light"> <b>GO !</b> Pickup </span>
+  </a>
+</div>
+  <div class="section" id="signin">
+    <table id="signinTable">
+      <tr class="signinrows">
+        <td class="label"><span>Email</span></td>
+        <td class="field"><input type="email" ng-model="user.email" ></td>
+      </tr>
+      <tr class="signinrows">
+        <td class="label"><span>Password</span></td>
+        <td class="field"><input type="password" ng-model="user.password"></td>
+      </tr>
+      <tr class="signinrows">
+        <td class="tablebutton"><input type="button" value="Sign In" ng-click="signin()"></td>
+      </tr>
+      <tr class="signinrows">
+        <td class="tableLinks">Forgot Password <a>Click here </a></td>
+      </tr>
+      <tr class="signinrows">
+        <td class="tableLinks">New User<a ng-click="open()"> Click here </a></td>
+      </tr>
+    </table>
+  </div>
+<div>
+<script type="text/ng-template" id="signUpModalContent.html">
+  <div class="modal-header">
+    <h3 id="modalTitle" class="modal-title"> Sign Up</h3>
+  </div>
+  <div class="modal-body">
+    <div class="section" id="signup">
+      <form>
+        <table id="signupTable">
+          <tr class="signuprows">
+            <td class="label"><span>Name</span></td>
+            <td class="field"><input type="text" ng-model="user.name"></td>
+          </tr>
+          <tr class="signuprows">
+            <td class="label"><span>Email</span></td>
+            <td class="field"><input type="text" ng-model="user.email" ></td>
+          </tr>
+          <tr class="signuprows">
+            <td class="label"><span>Password</span></td>
+            <td class="field"><input type="password" ng-model="user.password"></td>
+          </tr>
+        </table>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer" id="signupModalFooter">
+     <button class="btn btn-primary" value="Sign Up" ng-click="signup()" > Sign Up</button>
+    <button class="btn btn-primary"  ng-click="cancel()"> Cancel </button>
+  </div>
+</script>
+</div>
+</div>
+<!-- Footer -->
+<footer id="copyFooter">
+  <div class="container text-center">
+    <p>Copyright &copy; Deliver On The Go 2015</p>
+  </div>
+</footer>

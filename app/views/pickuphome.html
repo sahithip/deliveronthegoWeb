@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+      <i class="fa fa-bars"></i>
+    </button>
+    <a class="navbar-brand page-scroll" href="#page-top">
+      <i class="fa fa-truck"></i>  <span class="light"> <b>GO !</b> Pickup </span>
+    </a>
+  </div>
+  <div class="section" id="sideTabs">
+    <tabset id="menu" vertical="true" type="tabs">
+      <tab heading="Search for a driver" ng-click="openSearch()">
+        <div class="section" id="searchDriver">
+          <form id="searchForm">
+            <table>
+              <tr>
+                <td id="loc">
+                  <input id="pick" type="text" placeholder="Enter Pickup Location ">
+                </td>
+              </tr>
+              <tr>
+                <td id="loc">
+                  <input id="drop" type="text" placeholder="Enter Dropoff Location">
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label> Any Specific Requirements</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" ng-model="checkBoxList.liftWeight" ng-true-value="'YES'" ng-false-value="'NO'"> Ability to lift 20lbs
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input type="checkbox" ng-model="checkBoxList.sameDay" ng-true-value="'YES'" ng-false-value="'NO'"> Same day delivery
+
+                </td>
+              </tr>
+              <tr>
+                <td>
+
+                  <input type="checkbox" ng-model="checkBoxList.perish" ng-true-value="'YES'" ng-false-value="'NO'"> Perishable Products
+
+                </td>
+              </tr>
+              <tr>
+                <td  style="padding-bottom: 30px;">
+
+                  <input type="checkbox" ng-model="checkBoxList.checks" ng-true-value="'YES'" ng-false-value="'NO'"> Accept Checks
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label>Pick Up Date</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="pickupdt" is-open="openedPickup" min-date="minDate"  datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default" ng-click="openPickup($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label> Deliver Date</label>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <p class="input-group">
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="deliverdt" is-open="openedDeliver" min-date="minDate"  datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <span class="input-group-btn">
+                      <button type="button" class="btn btn-default" ng-click="openDeliver($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button id="" style="position: relative;left: 25%;color: #219ab3;"> GO ! Find a Driver</button>
+                </td>
+              </tr>
+            </table>
+          </form>
+        </div>
+      </tab>
+      <tab heading="Account Settings" ng-click="" ></tab>
+    </tabset>
+  </div>
+
+</div>
