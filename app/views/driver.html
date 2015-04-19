@@ -11,11 +11,11 @@
     <table id="signinTable">
       <tr class="signinrows">
         <td class="label"><span>Email</span></td>
-        <td class="field"><input type="email" ng-model="user.email" ></td>
+        <td class="field"><input type="email" ng-model="userSignIn.emailId" ></td>
       </tr>
       <tr class="signinrows">
         <td class="label"><span>Password</span></td>
-        <td class="field"><input type="password" ng-model="user.password"></td>
+        <td class="field"><input type="password" ng-model="userSignIn.password"></td>
       </tr>
       <tr class="signinrows">
         <td class="tablebutton"><input type="button" value="Sign In" ng-click="signin()"></td>
@@ -38,16 +38,24 @@
       <form>
         <table id="signupTable">
           <tr class="signuprows">
-            <td class="label"><span>Name</span></td>
-            <td class="field"><input type="text" ng-model="user.name"></td>
+            <td class="label"><span>First Name</span></td>
+            <td class="field"><input type="text" ng-model="user.firstName"></td>
+          </tr>
+          <tr class="signuprows">
+            <td class="label"><span>Last Name</span></td>
+            <td class="field"><input type="text" ng-model="user.lastName"></td>
           </tr>
           <tr class="signuprows">
             <td class="label"><span>Email</span></td>
-            <td class="field"><input type="text" ng-model="user.email" ></td>
+            <td class="field"><input type="text" ng-model="user.emailId" ></td>
           </tr>
           <tr class="signuprows">
             <td class="label"><span>Password</span></td>
             <td class="field"><input type="password" ng-model="user.password"></td>
+          </tr>
+          <tr class="signuprows">
+            <td class="label"><span>Phone Number</span></td>
+            <td class="field"><input type="tel" ng-model="user.phoneNumber"></td>
           </tr>
         </table>
       </form>

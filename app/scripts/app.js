@@ -13,7 +13,9 @@ angular
     'ngCookies',
     'ngRoute',
     'duScroll',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'ui.map',
+    'ngAutocomplete'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -32,6 +34,14 @@ angular
       .when('/pickupHome', {
         templateUrl: 'views/pickuphome.html',
         controller: 'PickuphomeCtrl'
+      })
+      .when('/deliver', {
+        templateUrl: 'views/deliver.html',
+        controller: 'DeliverCtrl'
+      })
+      .when('/deliverHome', {
+        templateUrl: 'views/deliverhome.html',
+        controller: 'DeliverhomeCtrl'
       })
       .otherwise({
         redirectTo: '/'

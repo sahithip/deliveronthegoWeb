@@ -12,8 +12,8 @@ angular.module('deliverOnTheGoApp')
     $scope.email;
     $scope.password;
 
-    $scope.user={
-      email: "",
+    $scope.userSignIn={
+      emailId: "",
       password:""
     }
     $scope.open = function(){
@@ -36,13 +36,23 @@ angular.module('deliverOnTheGoApp')
     }
     var signUpModalInstanceCtrl = function( $scope, $modalInstance, items){
       $scope.user={
-        email: "",
+        firstName :"",
+        lastName : "",
+        emailId: "",
         password:"",
-        name:""
+        phoneNumber:""
       }
       $scope.signup = function(){
-        var credentials = {username: $scope.user.name, email:$scope.user.email, password:$scope.user.password};
-      // caal api here paasing load
+        var credentials = {firstName: $scope.user.firstName, lastName : $scope.user.lastName, emailId:$scope.user.emailId, password:$scope.user.password, phoneNumber: $scope.user.phoneNumber};
+        console.log(credentials);
+        Auth.signup(credentials).success(function(data, status){
+          if(status == 200){
+            $modalInstance.dismiss('ok');
+            $location.path("/pickupHome");
+          }
+        }).error(function(error, status){
+
+        })
       };
       $scope.cancel = function () {
         $modalInstance.dismiss('cancel');
@@ -50,15 +60,21 @@ angular.module('deliverOnTheGoApp')
     }
 
     $scope.signin = function(){
-      var inputs = {email : $scope.user.email , password: $scope.user.password};
-      $location.path("/pickupHome");
-      //Auth.login(inputs).success(function(data,status){
-      //  if(status== 200){
-      //      $location.path("/pickupHome");
-      //  }
-      //}).error(function(res,status){
-      //  console.log("Login Failed");
-      //  // show alert or modal here for failure
-      //})
+      var inputs = {emailId : $scope.userSignIn.emailId , password: $scope.userSignIn.password, userType: 'User'};
+      console.log(inputs);
+      if(inputs.emailId != "" && inputs.password != ""){
+        Auth.login(inputs).success(function(data,status){
+          if(status == 200 && data != null){
+            console.log("login succeeded");
+            $location.path("/pickupHome"); // FIXME : page getting in even no input is given
+          }
+        }).error(function(res,status){
+          console.log("Login Failed");
+          // show alert or modal here for failure
+        })
+      } else {
+        alert("enter credentials properly");
+      }
+
     }
   });

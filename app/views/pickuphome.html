@@ -14,42 +14,62 @@
           <form id="searchForm">
             <table>
               <tr>
+                <td>
+                  <input type="text" ng-model="emailId" placeholder="Enter Email" >
+                </td>
+              </tr>
+              <tr>
                 <td id="loc">
-                  <input id="pick" type="text" placeholder="Enter Pickup Location ">
+                  <input ng-model="locations.address1.formattedAddress" id="pick" type="text"   placeholder="Enter Pickup Location " ng-autocomplete details="locations.address1" >
                 </td>
               </tr>
               <tr>
                 <td id="loc">
-                  <input id="drop" type="text" placeholder="Enter Dropoff Location">
+                  <input ng-model="locations.address2.formattedAddress"  id="drop" type="text" placeholder="Enter Dropoff Location" ng-autocomplete details="locations.address2">
                 </td>
               </tr>
-              <tr>
-                <td>
-                  <label> Any Specific Requirements</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" ng-model="checkBoxList.liftWeight" ng-true-value="'YES'" ng-false-value="'NO'"> Ability to lift 20lbs
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input type="checkbox" ng-model="checkBoxList.sameDay" ng-true-value="'YES'" ng-false-value="'NO'"> Same day delivery
+              <!--<tr>-->
+                <!--<td>-->
+                  <!--<label> Any Specific Requirements</label>-->
+                <!--</td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td>-->
+                  <!--<input type="checkbox" ng-model="checkBoxList.liftWeight" ng-true-value="'YES'" ng-false-value="'NO'"> Ability to lift 20lbs-->
+                <!--</td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td>-->
+                  <!--<input type="checkbox" ng-model="checkBoxList.sameDay" ng-true-value="'YES'" ng-false-value="'NO'"> Same day delivery-->
 
-                </td>
-              </tr>
+                <!--</td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td>-->
+
+                  <!--<input type="checkbox" ng-model="checkBoxList.perish" ng-true-value="'YES'" ng-false-value="'NO'"> Perishable Products-->
+
+                <!--</td>-->
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td  style="padding-bottom: 30px;">-->
+
+                  <!--<input type="checkbox" ng-model="checkBoxList.checks" ng-true-value="'YES'" ng-false-value="'NO'"> Accept Checks-->
+                <!--</td>-->
+              <!--</tr>-->
               <tr>
-                <td>
-
-                  <input type="checkbox" ng-model="checkBoxList.perish" ng-true-value="'YES'" ng-false-value="'NO'"> Perishable Products
-
+                <td  style="padding-bottom: 30px;">
+                  <input type="text" ng-model="dimensions.length" placeholder="Enter Length">
                 </td>
               </tr>
               <tr>
                 <td  style="padding-bottom: 30px;">
-
-                  <input type="checkbox" ng-model="checkBoxList.checks" ng-true-value="'YES'" ng-false-value="'NO'"> Accept Checks
+                  <input type="text" ng-model="dimensions.breadth" placeholder="Enter Breadth">
+                </td>
+              </tr>
+              <tr>
+                <td  style="padding-bottom: 30px;">
+                  <input type="text" ng-model="dimensions.width" placeholder="Enter Width">
                 </td>
               </tr>
               <tr>
@@ -60,7 +80,7 @@
               <tr>
                 <td>
                   <p class="input-group">
-                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="pickupdt" is-open="openedPickup" min-date="minDate"  datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="date.pickup" is-open="opened.pickup" min-date="minDate"  datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-default" ng-click="openPickup($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
@@ -75,7 +95,7 @@
               <tr>
                 <td>
                   <p class="input-group">
-                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="deliverdt" is-open="openedDeliver" min-date="minDate"  datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                    <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="date.dropoff" is-open="opened.dropOff" min-date="minDate"  datepicker-options="dateOptions" ng-required="true" close-text="Close" />
                     <span class="input-group-btn">
                       <button type="button" class="btn btn-default" ng-click="openDeliver($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                     </span>
@@ -84,7 +104,7 @@
               </tr>
               <tr>
                 <td>
-                  <button id="" style="position: relative;left: 25%;color: #219ab3;"> GO ! Find a Driver</button>
+                  <button id="" style="position: relative;left: 25%;color: #219ab3;" ng-click="sendRequest()"> GO ! Find a Driver</button>
                 </td>
               </tr>
             </table>
@@ -94,5 +114,21 @@
       <tab heading="Account Settings" ng-click="" ></tab>
     </tabset>
   </div>
-
+  <script type="text/ng-template" id="driverNotification.html">
+    <div class="modal-header">
+      <h3 id="modalTitle" class="modal-title"> Request Status</h3>
+    </div>
+    <div class="modal-body">
+      <div class="section" id="message">
+        <form>
+          <p style="color:#219ab3;">
+            {{message}}
+          </p>
+        </form>
+      </div>
+    </div>
+    <div class="modal-footer" id="messageconfirm">
+      <button class="btn btn-primary"  ng-click="okay()" > Okay</button>
+    </div>
+  </script>
 </div>

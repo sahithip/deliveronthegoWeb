@@ -66,6 +66,10 @@ body {
   padding: 5px;
 }
 
+table tr td input{
+  color: #000000;
+}
+
 
 
 #signupTable .signuprows .tablebutton {
@@ -89,7 +93,7 @@ body {
   margin-top: -150px;
 }
 #searchForm table tr #loc{
-  padding: 30px;
+  padding: 10px;
 }
 #searchForm table tr td #pick, #drop{
   height: 50px;
