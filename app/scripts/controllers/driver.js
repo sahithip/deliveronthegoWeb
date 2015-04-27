@@ -46,7 +46,7 @@ angular.module('deliverOnTheGoApp')
         var credentials = {firstName: $scope.user.firstName, lastName : $scope.user.lastName, emailId:$scope.user.emailId, password:$scope.user.password, phoneNumber: $scope.user.phoneNumber};
         console.log(credentials);
         Auth.signup(credentials).success(function(data, status){
-          if(status == 200){
+          if(status === 200){
             $modalInstance.dismiss('ok');
             $location.path("/pickupHome");
           }
@@ -62,7 +62,7 @@ angular.module('deliverOnTheGoApp')
     $scope.signin = function(){
       var inputs = {emailId : $scope.userSignIn.emailId , password: $scope.userSignIn.password, userType: 'User'};
       console.log(inputs);
-      if(inputs.emailId != "" && inputs.password != ""){
+      if(inputs.emailId !== "" && inputs.password !== ""){
         Auth.login(inputs).success(function(data,status){
           if(status == 200 && data != null){
             console.log("login succeeded");

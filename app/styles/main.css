@@ -2011,6 +2011,28 @@ p {
   }
 }
 
+.carousel .item {
+  left: 0;
+  width: 100%; /*slider width*/
+   /*slider height*/
+}
+.carousel .item img {
+  width: 100%; /*img width*/
+}
+/*add some makeup*/
+.carousel .carousel-control {
+  background: none;
+  border: none;
+  top: 50%;
+}
+/*full width container*/
+@media (max-width: 767px) {
+  .block {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+}
+
 /* line 78, ../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_type.scss */
 small,
 .small {
@@ -13435,4 +13457,5 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
 }
+
 
