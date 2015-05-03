@@ -9,15 +9,8 @@
  */
 
 angular.module('deliverOnTheGoApp')
-  //.config(function(uiGmapGoogleMapApi){
-  //  uiGmapGoogleMapApi.configure({
-  //    key: 'AIzaSyD2vfzgpKkVmNfcquawTusW9gUfi2GLjY8',
-  //    v: '3.17',
-  //    libraries: 'weather,geometry,visualization,directions'
-  //  });
-  //})
 
-  .controller('PickuphomeCtrl', function ($scope, pickuprequest,$modal) {
+  .controller('PickuphomeCtrl', function ($scope, pickuprequest,$modal, $cookieStore) {
     $scope.showSearch = true;
     $scope.emailId='';
     $scope.checkBoxList = {
@@ -90,7 +83,7 @@ angular.module('deliverOnTheGoApp')
       var pickupDate = ($scope.date.pickup.getMonth()+1) + '/' + $scope.date.pickup.getDate() + '/' + $scope.date.pickup.getFullYear();
       var dropOffDate = (($scope.date.dropoff.getMonth()+1) + '/' + $scope.date.dropoff.getDate() + '/' + $scope.date.dropoff.getFullYear())
       var pickupinput = {
-        emailId: $scope.emailId,
+        emailId: $cookieStore.get("emailID"),
         pickupLatitude : $scope.locations.address1.lat,
         pickupLongitude: $scope.locations.address1.lng,
         dropOffLatitude: $scope.locations.address2.lat,
@@ -114,12 +107,13 @@ angular.module('deliverOnTheGoApp')
     }
 
     $scope.openConfirmation = function (flag){
+      console.log("flag"+flag);
       var modalInstance = $modal.open({
         templateUrl:'driverNotification.html',
         controller: notificationModalInstanceCtrl,
         resolve :{
           flag:function(){
-            return $scope.flag;
+            return flag;
           }
         }
       });
@@ -130,6 +124,7 @@ angular.module('deliverOnTheGoApp')
       });
     }
     var notificationModalInstanceCtrl = function($scope, $modalInstance, flag){
+
       if( flag == 0 ){
         $scope.message = " Your request was unsuccessful"
       } else {

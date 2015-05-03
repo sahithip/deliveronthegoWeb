@@ -12,7 +12,7 @@ angular.module('deliverOnTheGoApp')
     // AngularJS will instantiate a singleton by calling "new" on this function
 
     var pickuprequest = function(inputs){
-      return $http.post('http://10.0.0.9:9006/Dotg/rest/home/findDrivers', inputs); //FIXME: change url to service url
+      return $http.post('http://52.8.7.203:8080/Dotg/rest/home/findDrivers', inputs); //FIXME: change url to service url
     }
 
     var pickuprequest = {

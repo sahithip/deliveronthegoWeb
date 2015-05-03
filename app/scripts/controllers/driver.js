@@ -8,7 +8,9 @@
  * Controller of the deliverOnTheGoApp
  */
 angular.module('deliverOnTheGoApp')
-  .controller('DriverCtrl', function ($scope, $modal, Auth, $location) {
+  .controller('DriverCtrl', function ($scope, $modal, Auth, $location, $cookieStore) {
+
+
     $scope.email;
     $scope.password;
 
@@ -64,8 +66,12 @@ angular.module('deliverOnTheGoApp')
       console.log(inputs);
       if(inputs.emailId !== "" && inputs.password !== ""){
         Auth.login(inputs).success(function(data,status){
+          console.log(data);
+          console.log(status);
           if(status == 200 && data != null){
             console.log("login succeeded");
+            $cookieStore.put("emailID", data.emailid);
+            $cookieStore.put("userType", data.userType);
             $location.path("/pickupHome"); // FIXME : page getting in even no input is given
           }
         }).error(function(res,status){

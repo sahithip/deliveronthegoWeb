@@ -14,11 +14,6 @@
           <form id="searchForm">
             <table>
               <tr>
-                <td>
-                  <input type="text" ng-model="emailId" placeholder="Enter Email" >
-                </td>
-              </tr>
-              <tr>
                 <td id="loc">
                   <input ng-model="locations.address1.formattedAddress" id="pick" type="text"   placeholder="Enter Pickup Location " ng-autocomplete details="locations.address1" >
                 </td>
@@ -28,47 +23,21 @@
                   <input ng-model="locations.address2.formattedAddress"  id="drop" type="text" placeholder="Enter Dropoff Location" ng-autocomplete details="locations.address2">
                 </td>
               </tr>
-              <!--<tr>-->
-                <!--<td>-->
-                  <!--<label> Any Specific Requirements</label>-->
-                <!--</td>-->
-              <!--</tr>-->
-              <!--<tr>-->
-                <!--<td>-->
-                  <!--<input type="checkbox" ng-model="checkBoxList.liftWeight" ng-true-value="'YES'" ng-false-value="'NO'"> Ability to lift 20lbs-->
-                <!--</td>-->
-              <!--</tr>-->
-              <!--<tr>-->
-                <!--<td>-->
-                  <!--<input type="checkbox" ng-model="checkBoxList.sameDay" ng-true-value="'YES'" ng-false-value="'NO'"> Same day delivery-->
-
-                <!--</td>-->
-              <!--</tr>-->
-              <!--<tr>-->
-                <!--<td>-->
-
-                  <!--<input type="checkbox" ng-model="checkBoxList.perish" ng-true-value="'YES'" ng-false-value="'NO'"> Perishable Products-->
-
-                <!--</td>-->
-              <!--</tr>-->
-              <!--<tr>-->
-                <!--<td  style="padding-bottom: 30px;">-->
-
-                  <!--<input type="checkbox" ng-model="checkBoxList.checks" ng-true-value="'YES'" ng-false-value="'NO'"> Accept Checks-->
-                <!--</td>-->
-              <!--</tr>-->
               <tr>
-                <td  style="padding-bottom: 30px;">
-                  <input type="text" ng-model="dimensions.length" placeholder="Enter Length">
+                <td style="padding-bottom: 30px;">
+                  <label>Length </label>
+                  <input type="text" ng-model="dimensions.length" placeholder="Enter length">
                 </td>
               </tr>
               <tr>
                 <td  style="padding-bottom: 30px;">
+                  <label>Breadth </label>
                   <input type="text" ng-model="dimensions.breadth" placeholder="Enter Breadth">
                 </td>
               </tr>
               <tr>
                 <td  style="padding-bottom: 30px;">
+                  <label>Width </label>
                   <input type="text" ng-model="dimensions.width" placeholder="Enter Width">
                 </td>
               </tr>
